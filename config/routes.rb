@@ -1,3 +1,14 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  namespace :api do
+    namespace :v1 do
+      devise_for :admins
+      devise_scope :admin do
+        resources :admins
+        resources :sessions
+        resources :institutions
+      end
+
+      resources :visitors
+    end
+  end
 end

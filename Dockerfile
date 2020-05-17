@@ -4,6 +4,7 @@ RUN mkdir /myapp
 WORKDIR /myapp
 COPY Gemfile /myapp/Gemfile
 COPY Gemfile.lock /myapp/Gemfile.lock
+RUN gem install orm_adapter -v 0.5.0
 RUN bundle install
 COPY . /myapp
 
